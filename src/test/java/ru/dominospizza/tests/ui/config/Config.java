@@ -13,7 +13,7 @@ public interface Config extends org.aeonbits.owner.Config {
     String browserSize();
 
     @Key("timeout")
-    String timeout();
+    Long timeout();
 
     @Key("browser")
     String browser();
@@ -23,4 +23,10 @@ public interface Config extends org.aeonbits.owner.Config {
 
     @Key("browserVersion")
     String browserVersion();
+
+    @Key("pageLoadTimeout")
+    Long pageLoadTimeout();
+
+    @Key("remoteTimeout")
+    Long remoteTimeout();
 }

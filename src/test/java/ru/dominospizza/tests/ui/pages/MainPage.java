@@ -13,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MainPage {
 
-    public MainPage() {
-        open("https://podolsk.dominospizza.ru/");
-    }
+//    public MainPage() {
+//        open("https://podolsk.dominospizza.ru/");
+//    }
 
     SelenideElement headerLogo = $("[data-testId='header_logo']"),
             loginButton = $("[data-testId='topbar_user_loginbutton']"),
@@ -55,5 +55,11 @@ public class MainPage {
     public PizzaPage clickOnPizzaLink() {
         pizzaLink.click();
         return new PizzaPage();
+    }
+
+    @Step("Открыть гланую страницу")
+    public MainPage openPage() {
+        open("https://podolsk.dominospizza.ru/");
+        return this;
     }
 }

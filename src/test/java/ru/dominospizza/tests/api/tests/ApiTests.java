@@ -19,11 +19,10 @@ import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.*;
-import static ru.dominospizza.tests.api.specifications.Specs.requestSpec;
-import static ru.dominospizza.tests.api.specifications.Specs.responseSpec;
 
 public class ApiTests {
     TestData data = new TestData();
+    Specs specs = new Specs();
     SuccessLogin response;
     UnSuccessLogin incorrectResponse;
     AddProductInCart addProductInCart;
@@ -35,12 +34,12 @@ public class ApiTests {
     @Severity(CRITICAL)
     void successLogin() {
         step("Авторизация зарегестрированного пользователя", () -> {
-            response = given(requestSpec)
+            response = given(specs.requestSpec)
                     .header("authorization", data.getAuthorization())
                     .when()
                     .get(EndPoints.AUTH_ENDPOINT + data.getCorrectUserData().get("correctPhoneNumber"))
                     .then()
-                    .spec(responseSpec(200))
+                    .spec(specs.responseSpec(200))
                     .extract().as(SuccessLogin.class);
         });
         step("Проверка номера телефона в ответе", () -> {
@@ -64,12 +63,12 @@ public class ApiTests {
     @Severity(CRITICAL)
     void loginWithIncorrectPhoneNumber() {
         step("Попытка авторизации пользователя с коротким номером телефона", () -> {
-            incorrectResponse = given(requestSpec)
+            incorrectResponse = given(specs.requestSpec)
                     .header("authorization", data.getAuthorization())
                     .when()
                     .get(EndPoints.AUTH_ENDPOINT + data.getIncorrectUserData().get("incorrectPhoneNumber"))
                     .then()
-                    .spec(responseSpec(400))
+                    .spec(specs.responseSpec(400))
                     .extract().as(UnSuccessLogin.class);
         });
 
@@ -98,13 +97,13 @@ public class ApiTests {
     void addProductInCart() {
         Product product = new Product("TUNA13T", "TUNAPZ", "14", "THIN", "NONE", "Pizza", 10, new ArrayList<>(), false);
         step("Добавляем товар в корзину ", () -> {
-            addProductInCart = given(requestSpec)
+            addProductInCart = given(specs.requestSpec)
                     .header("authorization", data.getAuthorization())
                     .body(product)
                     .when()
                     .post(EndPoints.ADD_PRODUCT_IN_CART)
                     .then()
-                    .spec(responseSpec(200))
+                    .spec(specs.responseSpec(200))
                     .extract().as(AddProductInCart.class);
         });
         step("Проверка статуса в ответе", () -> {
@@ -132,13 +131,13 @@ public class ApiTests {
     void addMaxQtyProductInCart() {
         Product product = new Product("TUNA13T", "TUNAPZ", "14", "THIN", "NONE", "Pizza", 1000, new ArrayList<>(), false);
         step("Добавляем товар в корзину ", () -> {
-            addProductInCart = given(requestSpec)
+            addProductInCart = given(specs.requestSpec)
                     .header("authorization", data.getAuthorization())
                     .body(product)
                     .when()
                     .post(EndPoints.ADD_PRODUCT_IN_CART)
                     .then()
-                    .spec(responseSpec(500))
+                    .spec(specs.responseSpec(500))
                     .extract().as(AddProductInCart.class);
         });
         step("Проверка статуса в ответе", () -> {
@@ -166,13 +165,13 @@ public class ApiTests {
     void addZeroQtyProductInCart() {
         Product product = new Product("TUNA13T", "TUNAPZ", "14", "THIN", "NONE", "Pizza", 0, new ArrayList<>(), false);
         step("Добавляем товар в корзину в кол-ве 0 шт", () -> {
-            addProductInCart = given(requestSpec)
+            addProductInCart = given(specs.requestSpec)
                     .header("authorization", data.getAuthorization())
                     .body(product)
                     .when()
                     .post(EndPoints.ADD_PRODUCT_IN_CART)
                     .then()
-                    .spec(responseSpec(500))
+                    .spec(specs.responseSpec(500))
                     .extract().as(AddProductInCart.class);
         });
         step("Проверка статуса в ответе", () -> {

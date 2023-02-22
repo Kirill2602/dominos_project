@@ -13,15 +13,14 @@ import static io.restassured.http.ContentType.JSON;
 import static ru.dominospizza.tests.api.helpers.CustomApiListener.withCustomTemplates;
 
 public class Specs {
-    static Config config = ConfigFactory.create(Config.class);
     public static RequestSpecification requestSpec = with()
             .log().uri()
             .log().headers()
             .log().body()
             .filter(withCustomTemplates())
             .contentType(JSON)
-            .baseUri(config.apiBaseUrl())
-            .basePath("/configs/api");
+            .baseUri(ConfigFactory.create(Config.class).apiBaseUrl())
+            .basePath("/api");
 
     public static ResponseSpecification responseSpec(int statusCode) {
         return new ResponseSpecBuilder()

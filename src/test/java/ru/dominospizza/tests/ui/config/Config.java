@@ -18,9 +18,9 @@ public interface Config extends org.aeonbits.owner.Config {
     @Key("browser")
     String browser();
 
-    @Key("remote")
-    boolean remote();
-
     @Key("remoteBrowser")
     String remoteBrowser();
+
+    @Key("browserVersion")
+    String browserVersion();
 }

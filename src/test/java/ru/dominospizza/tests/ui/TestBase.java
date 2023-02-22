@@ -5,6 +5,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.dominospizza.tests.ui.config.Config;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -24,10 +25,17 @@ public class TestBase {
                 break;
             case "ui.remote":
                 Configuration.baseUrl = config.baseUrl();
+                Configuration.browserVersion = config.browserVersion();
                 Configuration.browserSize = config.browserSize();
                 Configuration.timeout = Long.parseLong(config.timeout());
                 Configuration.browser = config.browser();
                 Configuration.remote = config.remoteBrowser();
+
+
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability("enableVNC", true);
+                capabilities.setCapability("enableVideo", true);
+                Configuration.browserCapabilities = capabilities;
         }
     }
 

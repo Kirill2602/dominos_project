@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.dominospizza.tests.ui.config.Config;
 import ru.dominospizza.tests.ui.pages.MainPage;
@@ -39,6 +40,7 @@ public class TestBase {
 
 
                 DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY,"eager");
                 capabilities.setCapability("enableVNC", true);
                 capabilities.setCapability("enableVideo", true);
                 Configuration.browserCapabilities = capabilities;

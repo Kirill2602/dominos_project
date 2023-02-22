@@ -12,11 +12,6 @@ import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MainPage {
-
-//    public MainPage() {
-//        open("https://podolsk.dominospizza.ru/");
-//    }
-
     SelenideElement headerLogo = $("[data-testId='header_logo']"),
             loginButton = $("[data-testId='topbar_user_loginbutton']"),
             userIcon = $x("//div[@class='sc-1inhxcy-5 lcFAbi']"),
@@ -40,6 +35,7 @@ public class MainPage {
 
     @Step("Нажать кнопку войти")
     public LoginModalComponent clickLoginButton() {
+        loginButton.shouldBe(visible);
         loginButton.click();
         return new LoginModalComponent();
     }

@@ -17,7 +17,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
 
     @Test
     @DisplayName("Проверка правильного отображения типа услуги и адреса при выборе доставки")
-    @Tags({@Tag("mobile"), @Tag("regress")})
+    @Tag("mobile")
     @Owner("spitsyn.k")
     void checkDeliveryServiceAndLocation() {
         methodPopUpComponent
@@ -34,7 +34,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
 
     @Test
     @DisplayName("Проверка правильного отображения типа услуги и адреса при выборе самовывоза")
-    @Tags({@Tag("mobile"), @Tag("regress")})
+    @Tag("mobile")
     @Owner("spitsyn.k")
     void checkPikUpServiceAndLocation() {
         methodPopUpComponent
@@ -51,7 +51,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
 
     @Test
     @DisplayName("Успешная авторизация зарегестрированного пользователя")
-    @Tags({@Tag("mobile"), @Tag("regress")})
+    @Tag("mobile")
     @Owner("spitsyn.k")
     void successLogin() {
         methodPopUpComponent
@@ -63,7 +63,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
 
     @Test
     @DisplayName("Проверка данных в алерте при неудачной попытке авторизоваться не зарегестрированного пользователя")
-    @Tags({@Tag("mobile"), @Tag("regress")})
+    @Tag("mobile")
     @Owner("spitsyn.k")
     void unSuccessLogin() {
         methodPopUpComponent
@@ -77,7 +77,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
 
     @Test
     @DisplayName("Проверка добавления товара в корзину, после авторизации зарегестрированного пользователя")
-    @Tags({@Tag("mobile"), @Tag("regress")})
+    @Tag("mobile")
     @Owner("spitsyn.k")
     void addProductInCart() {
         methodPopUpComponent

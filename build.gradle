@@ -85,9 +85,3 @@ task ui(type: Test) {
         includeTags 'ui'
     }
 }
-
-task regress(type: Test) {
-    useJUnitPlatform {
-        includeTags 'regress'
-    }
-}

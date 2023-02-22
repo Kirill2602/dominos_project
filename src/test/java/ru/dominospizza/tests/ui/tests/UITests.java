@@ -18,7 +18,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Проверка всех пунктов меню в шапке главной страницы")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(TRIVIAL)
     void checkMainPageHeaderLogoAndNavMenuItems() {
@@ -29,7 +29,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Неудачная попытка авторизации с пустыми полями 'Номер телефона' и 'Пароль'")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(NORMAL)
     void unSuccessLoginWithEmptyPhoneNumberAndPassword() {
@@ -45,7 +45,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Неудачная попытка авторизации с пустым номером телефона")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(NORMAL)
     void unSuccessLoginWithEmptyPhoneNumber() {
@@ -60,7 +60,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Неудачная попытка авторизации с пустым паролем")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(NORMAL)
     void unSuccessLoginWithEmptyPassword() {
@@ -75,7 +75,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Неудачная попытка авторизации с коротким номером телефона")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(NORMAL)
     void unSuccessLoginWithShortPhoneNumber() {
@@ -90,7 +90,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Успешная авторизация зарегестрированного пользователя")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(BLOCKER)
     void successLogin() {
@@ -104,7 +104,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Добавление товара в корзину")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(BLOCKER)
     void addProductInCart() {
@@ -126,7 +126,7 @@ public class UITests extends TestBase {
 
     @Test
     @DisplayName("Редактирование кол-ва товара в корзине, проверка цены и удаление товара")
-    @Tags({@Tag("ui"), @Tag("regress")})
+    @Tag("ui")
     @Owner("spitsyn.k")
     @Severity(BLOCKER)
     void changeProductQtyAndCheckPriceInCartAndDeleteProduct() {

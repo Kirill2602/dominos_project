@@ -48,7 +48,7 @@ public class MobileDriver implements WebDriverProvider {
 
     private String getAppPath() {
         String appUrl = "https://www.dropbox.com/s/vhm643mlmkfv3gc/dominos.apk?dl=1";
-        String appPath = "src/test/resources/apps/app-alpha-universal-release.apk";
+        String appPath = "src/test/resources/apps/dominos.apk";
 
         File app = new File(appPath);
         if (!app.exists()) {

@@ -1,12 +1,17 @@
 package ru.dominospizza.tests.ui.pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.dominospizza.tests.ui.pages.components.CartComponent;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static ru.dominospizza.tests.ui.pages.components.LoginModalComponent.closeModalsWindows;
 
 public class PizzaPage {
@@ -15,7 +20,11 @@ public class PizzaPage {
             choiceButton = $("[data-testId='product_pizza_1_expand_button']"),
             addButton = $("[data-testId='product_pizza_1_add_button']"),
             qtyInCart = $(".sc-1vciwzu-2.lbpdUQ"),
-            cartButton = $("[data-testId='header_cart_toggle_button']");
+            cartButton = $("[data-testId='header_cart_toggle_button']"),
+            pizzaFilterByCategoryButton = $("[data-testId='pizzafilter_toggle_button']");
+    ElementsCollection
+            filterButtons = $$(".fl60hy-0.iNLGfO.c8ov00-4.kmNAFE"),
+            filteredProductsList = $$(".sc-18t298z-0.coWkSU");
 
     @Step("Проверить наличие названия выбранной пиццы")
     public PizzaPage checkAvailabilityOfPizzaName(String name) {
@@ -50,5 +59,26 @@ public class PizzaPage {
         closeModalsWindows();
         cartButton.click();
         return new CartComponent();
+    }
+
+    @Step("Нажать на кнопку 'Фильтр'")
+    public PizzaPage clickOnPizzaFilterByCategoryButton() {
+        closeModalsWindows();
+        pizzaFilterByCategoryButton.click();
+        return this;
+    }
+
+    @Step("Выбрать фильтр")
+    public PizzaPage clickOnFilterButton(String name) {
+        closeModalsWindows();
+        filterButtons.findBy(text(name)).click();
+        return this;
+    }
+
+    @Step("Проверить наличие продуктов подходящих под фильтр")
+    public PizzaPage checkFilteredProducts(List<String> productsList) {
+        closeModalsWindows();
+        filteredProductsList.shouldHave(CollectionCondition.texts(productsList));
+        return this;
     }
 }

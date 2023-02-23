@@ -31,10 +31,10 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("os_version", config.osVersion());
 //        mutableCapabilities.setCapability("browserstack.user", config.login());
 //        mutableCapabilities.setCapability("browserstack.user", "kirill_Av63Rj");
-        mutableCapabilities.setCapability("browserstack.user", "kirill530");
+        mutableCapabilities.setCapability("browserstack.user", "avtotestavtotest_UNn3rV");
 //        mutableCapabilities.setCapability("browserstack.key", config.password());
 //        mutableCapabilities.setCapability("browserstack.key", "Y2aJHfEasW6DtNsyW6Tz");
-        mutableCapabilities.setCapability("browserstack.key", "zyzzGhYFCmx6eB18fu3P");
+        mutableCapabilities.setCapability("browserstack.key", "VNuAjap7MVFQH8JjzunN");
         mutableCapabilities.setCapability("project", config.projectName());
         mutableCapabilities.setCapability("build", config.buildName());
         mutableCapabilities.setCapability("name", config.testName());

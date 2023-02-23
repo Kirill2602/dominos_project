@@ -16,7 +16,7 @@ public class Browserstack {
                 .filter(withCustomTemplates())
 //                .auth().basic(config.login(), config.password())
 //                .auth().basic("kirill_Av63Rj", "Y2aJHfEasW6DtNsyW6Tz")
-                .auth().basic("kirill530", "zyzzGhYFCmx6eB18fu3P")
+                .auth().basic("avtotestavtotest_UNn3rV", "VNuAjap7MVFQH8JjzunN")
                 .when()
                 .get(url)
                 .then()

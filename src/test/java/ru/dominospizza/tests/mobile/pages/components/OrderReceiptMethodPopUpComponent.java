@@ -2,7 +2,7 @@ package ru.dominospizza.tests.mobile.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import ru.dominospizza.tests.mobile.TestBase;
+import ru.dominospizza.testbase.TestBase;
 import ru.dominospizza.tests.mobile.pages.LoginPage;
 import ru.dominospizza.tests.mobile.pages.MapPage;
 

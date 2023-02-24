@@ -1,8 +1,8 @@
 package ru.dominospizza.tests.ui.pages;
 
 import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.dominospizza.tests.ui.pages.components.CartComponent;
@@ -21,10 +21,11 @@ public class PizzaPage {
             addButton = $("[data-testId='product_pizza_1_add_button']"),
             qtyInCart = $(".sc-1vciwzu-2.lbpdUQ"),
             cartButton = $("[data-testId='header_cart_toggle_button']"),
-            pizzaFilterByCategoryButton = $("[data-testId='pizzafilter_toggle_button']");
+            pizzaFilterByCategoryButton = $("[data-testId='pizzafilter_toggle_button']"),
+            footerText = $(".sc-1nbwown-0.fLEMQr h1");
     ElementsCollection
             filterButtons = $$(".fl60hy-0.iNLGfO.c8ov00-4.kmNAFE"),
-            filteredProductsList = $$(".sc-18t298z-0.coWkSU");
+            filteredProductsList = $$("[itemprop='name']");
 
     @Step("Проверить наличие названия выбранной пиццы")
     public PizzaPage checkAvailabilityOfPizzaName(String name) {
@@ -77,6 +78,8 @@ public class PizzaPage {
 
     @Step("Проверить наличие продуктов подходящих под фильтр")
     public PizzaPage checkFilteredProducts(List<String> productsList) {
+        closeModalsWindows();
+        footerText.scrollTo();
         closeModalsWindows();
         filteredProductsList.shouldHave(CollectionCondition.texts(productsList));
         return this;

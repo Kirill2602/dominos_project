@@ -4,19 +4,17 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import ru.dominospizza.tests.ui.TestBase;
+import ru.dominospizza.testbase.TestBase;
 import ru.dominospizza.tests.ui.pages.MainPage;
-import ru.dominospizza.tests.ui.testdata.TestData;
+import ru.dominospizza.testsdata.TestData;
 
 import java.util.List;
 import java.util.stream.Stream;
 
-import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.SeverityLevel.*;
 
 public class UITests extends TestBase {

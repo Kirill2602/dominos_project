@@ -3,13 +3,14 @@ package ru.dominospizza.tests.mobile.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.dominospizza.tests.mobile.pages.components.DeviceLocationComponent;
+import ru.dominospizza.testsdata.TestData;
 
 import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Selenide.*;
 import static io.appium.java_client.AppiumBy.accessibilityId;
-import static ru.dominospizza.tests.mobile.testdata.TestData.deliveryData;
 
 public class MapPage {
+    TestData data = new TestData();
     SelenideElement
             continueButton = $(accessibilityId("Продолжить_view")),
             searchInput = $x("//android.widget.EditText[@index='1']"),
@@ -23,7 +24,7 @@ public class MapPage {
 
     @Step("Вписать в строку поиска адрес")
     public MapPage setAddress() {
-        searchInput.sendKeys(deliveryData.get("Доставка"));
+        searchInput.sendKeys(data.getDeliveryServiceAddress());
         sleep(3000);
         searchInput.pressEnter();
         return this;

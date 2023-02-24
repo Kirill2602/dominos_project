@@ -1,13 +1,9 @@
 package ru.dominospizza.tests.mobile.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import io.appium.java_client.MobileBy;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-import static io.appium.java_client.AppiumBy.accessibilityId;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainPage {

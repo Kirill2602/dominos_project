@@ -6,10 +6,9 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.appium.java_client.AppiumBy.accessibilityId;
-import static io.appium.java_client.AppiumBy.id;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static ru.dominospizza.tests.mobile.drivers.BrowserstackHelper.browserstackScrollDown;
-import static ru.dominospizza.tests.mobile.drivers.EmulatorHelper.scrollDown;
+import static ru.dominospizza.drivers.BrowserstackHelper.browserstackScrollDown;
+import static ru.dominospizza.drivers.EmulatorHelper.scrollDown;
 
 public class CartComponent {
     SelenideElement
@@ -56,7 +55,7 @@ public class CartComponent {
     public CartComponent setConfirmationCheckBox() {
         if (System.getProperty("env").equals("local")) {
             scrollDown();
-        } else if(System.getProperty("env").equals("browserstack")){
+        } else if (System.getProperty("env").equals("browserstack")) {
             browserstackScrollDown();
         }
         confirmationCheckBox.click();

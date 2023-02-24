@@ -2,13 +2,13 @@ package ru.dominospizza.tests.mobile.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import ru.dominospizza.tests.mobile.pages.components.CartComponent;
 import ru.dominospizza.tests.mobile.pages.components.ProductCardComponent;
+import ru.dominospizza.tests.mobile.pages.components.CartComponent;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
-import static ru.dominospizza.tests.mobile.drivers.BrowserstackHelper.browserstackScrollDown;
-import static ru.dominospizza.tests.mobile.drivers.EmulatorHelper.scrollDown;
+import static ru.dominospizza.drivers.BrowserstackHelper.browserstackScrollDown;
+import static ru.dominospizza.drivers.EmulatorHelper.scrollDown;
 
 public class PizzaPage {
     SelenideElement
@@ -20,7 +20,7 @@ public class PizzaPage {
     public ProductCardComponent clickAddButton() {
         if (System.getProperty("env").equals("local")) {
             scrollDown();
-        } else if(System.getProperty("env").equals("browserstack")){
+        } else if (System.getProperty("env").equals("browserstack")) {
             browserstackScrollDown();
         }
         firstPizzaFromList.shouldBe(visible);

@@ -1,13 +1,15 @@
 package ru.dominospizza.tests.mobile.tests;
 
 import io.qameta.allure.Owner;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import ru.dominospizza.tests.mobile.pages.components.OrderReceiptMethodPopUpComponent;
-
-import static ru.dominospizza.tests.mobile.testdata.TestData.deliveryData;
-import static ru.dominospizza.tests.mobile.testdata.TestData.pickupData;
+import ru.dominospizza.testsdata.TestData;
 
 public class MobileTests extends OrderReceiptMethodPopUpComponent {
+    TestData data = new TestData();
     private static OrderReceiptMethodPopUpComponent methodPopUpComponent;
 
     @BeforeAll
@@ -23,13 +25,12 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
         methodPopUpComponent
                 .checkPopUpText()
                 .clickDeliveryButton()
-//                .clickCloseBannerButton()
                 .clickContinueButton()
                 .clickDenyButton()
                 .setAddress()
                 .clickUseThisAddressButton()
-                .checkServiceType("Доставка")
-                .checkLocation(deliveryData.get("Доставка"));
+                .checkServiceType(data.getDeliveryService())
+                .checkLocation(data.getDeliveryServiceAddress());
     }
 
     @Test
@@ -42,11 +43,11 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
                 .clickPickUpFromTheRestaurantButton()
                 .clickDenyButtonAndReturnTakeWay()
                 .clickShowRestaurantButton()
-                .setRestaurantAddress(pickupData.get("Навынос"))
+                .setRestaurantAddress(data.getPickUpServiceAddress())
                 .clickOnFirstRestaurantFromList()
                 .clickOnContinueButton()
-                .checkServiceType("Навынос")
-                .checkLocation(pickupData.get("Навынос"));
+                .checkServiceType(data.getPickUpService())
+                .checkLocation(data.getDeliveryServiceAddress());
     }
 
     @Test
@@ -58,7 +59,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
                 .checkPopUpText()
                 .clickLoginOrRegisterButton()
                 .successLogin("9652294486", "Qwe12345")
-                .checkPopUpTextAfterAuth("Autotest _!");
+                .checkPopUpTextAfterAuth(data.getExpectedUserName());
     }
 
     @Test
@@ -71,7 +72,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
                 .clickLoginOrRegisterButton()
                 .unSuccessLogin("1111111111", "Qwe11111")
                 .checkAlertTitle()
-                .checkAlertMessage("Телефон или пароль недействителен.")
+                .checkAlertMessage(data.getExpectedIncorrectPhoneOrPasswordErrorText())
                 .clickAlertOkButton();
     }
 
@@ -84,11 +85,11 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
                 .checkPopUpText()
                 .clickLoginOrRegisterButton()
                 .successLogin("9652294486", "Qwe12345")
-                .checkPopUpTextAfterAuth("Autotest _!")
+                .checkPopUpTextAfterAuth(data.getExpectedUserName())
                 .clickPickUpFromTheRestaurantButton()
                 .clickDenyButtonAndReturnTakeWay()
                 .clickShowRestaurantButton()
-                .setRestaurantAddress(pickupData.get("Навынос"))
+                .setRestaurantAddress(data.getPickUpServiceAddress())
                 .clickOnFirstRestaurantFromList()
                 .clickOnContinueButton()
                 .clickOnPizzaButton()
@@ -98,7 +99,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
                 .clickGoToCartButton()
                 .checkProductQty("1")
                 .checkProductName("Пицца-туница")
-                .checkDeliveryAddress(pickupData.get("Навынос"))
+                .checkDeliveryAddress(data.getPickUpServiceAddress())
                 .clickOnCartConfirmationButton()
                 .setPaymentMethod()
                 .setConfirmationCheckBox()

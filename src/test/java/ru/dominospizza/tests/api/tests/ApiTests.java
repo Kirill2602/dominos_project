@@ -11,7 +11,7 @@ import ru.dominospizza.tests.api.models.addproductincart.Product;
 import ru.dominospizza.tests.api.models.login.successlogin.SuccessLogin;
 import ru.dominospizza.tests.api.models.login.unsuccesslogin.UnSuccessLogin;
 import ru.dominospizza.tests.api.specifications.Specs;
-import ru.dominospizza.tests.api.testdata.TestData;
+import ru.dominospizza.testsdata.TestData;
 
 import java.util.ArrayList;
 

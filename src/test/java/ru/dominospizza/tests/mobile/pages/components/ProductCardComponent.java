@@ -24,5 +24,4 @@ public class ProductCardComponent {
         addToCartButton.click();
         return new PizzaPage();
     }
-
 }

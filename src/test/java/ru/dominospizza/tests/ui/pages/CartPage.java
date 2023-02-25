@@ -18,7 +18,7 @@ public class CartPage {
             registerOrderButton = $("[data-testId='basket_footer_button']"),
             plusButton = $("[data-testId='basket_single_increase_PRD_0']"),
             minusButton = $("[data-testId='basket_single_decrease_PRD_0']"),
-            emptyCartText = $x("//p[text()='Положите что-нибудь в корзину.']");
+            emptyCartText = $(".gkf1py-0.hRmbek p");
     String initialProductQty = qtyInCart.getText(),
             initialOrderPrice = $x("//button[@data-testId='basket_footer_button']/span/span").getText();
 
@@ -67,7 +67,9 @@ public class CartPage {
 
     @Step("Проверить текст пустой корзины")
     public CartPage checkVisibilityOfEmptyCartText() {
-        emptyCartText.shouldBe(visible);
+        refresh();
+        closeModalsWindows();
+        emptyCartText.shouldHave(text("Положите что-нибудь в корзину."));
         return this;
     }
 }

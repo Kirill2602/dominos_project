@@ -66,7 +66,8 @@ public class TestData {
             expectedEmptyPasswordErrorText = "Поле «Пароль» обязательно для заполнения",
             expectedShortPhoneErrorText = "Введите правильный телефон.",
             expectedIncorrectPhoneOrPasswordErrorText = "Телефон или пароль недействителен.",
-            expectedUserName = "Autotest _!";
+            expectedUserNameGreeting = "Autotest _!",
+            expectedUserName = "Autotest";
 
     private List<String>
             navMenuItemsText = List.of("АКЦИИ", "ПИЦЦА", "ЗАКУСКИ", "ДЕСЕРТЫ", "НАПИТКИ", "СОУСЫ");

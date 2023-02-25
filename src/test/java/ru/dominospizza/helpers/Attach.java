@@ -3,6 +3,7 @@ package ru.dominospizza.helpers;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -11,19 +12,12 @@ import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
-import static ru.dominospizza.helpers.Browserstack.getVideoUrl;
 
 public class Attach {
+
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
-    }
-
-    public static void browserConsoleLogs() {
-        attachAsText(
-                "Browser console logs",
-                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
-        );
     }
 
     @Attachment(value = "Page source", type = "text/plain")
@@ -33,20 +27,31 @@ public class Attach {
 
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
-        return Selenide.screenshot(OutputType.BYTES);
+        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
+
+    public static void browserConsoleLogs() {
+        attachAsText(
+                "Browser console logs",
+                String.join("\n", Selenide.getWebDriverLogs(BROWSER))
+        );
     }
 
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
-    public static String addVideo(String sessionId) {
+    public static String videoBrowserstack(String sessionId) {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-                + getVideoUrl(sessionId)
+                + Browserstack.videoUrl(sessionId)
                 + "' type='video/mp4'></video></body></html>";
     }
 
+    @Attachment(value = "Browserstack full info link", type = "text/html", fileExtension = ".html")
+    public static String browserstackFullInfoLink(String sessionId) {
+        return "<html><body><a href='"
+                + Browserstack.fullInfoPublicUrl(sessionId)
+                + "'>Full info link</a></body></html>";
+    }
 
-
-
-    ////////////////////////////////////////////////////
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String videoSelenoid(String sessionId) {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"

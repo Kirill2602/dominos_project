@@ -10,7 +10,6 @@ import static io.appium.java_client.AppiumBy.id;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UnSuccessLoginModalWindowComponent {
-
     SelenideElement
             alertTitle = $(id("android:id/alertTitle")),
             alertMessage = $(id("android:id/message")),

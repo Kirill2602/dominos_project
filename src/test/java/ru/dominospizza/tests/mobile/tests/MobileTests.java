@@ -47,7 +47,7 @@ public class MobileTests extends OrderReceiptMethodPopUpComponent {
                 .clickOnFirstRestaurantFromList()
                 .clickOnContinueButton()
                 .checkServiceType(data.getPickUpService())
-                .checkLocation(data.getDeliveryServiceAddress());
+                .checkLocation(data.getPickUpServiceAddress());
     }
 
     @Test

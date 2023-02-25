@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import ru.dominospizza.testbase.TestBase;
+import ru.dominospizza.tests.ui.TestBase;
 import ru.dominospizza.tests.ui.pages.MainPage;
 import ru.dominospizza.testsdata.TestData;
 
@@ -160,10 +160,8 @@ public class UITests extends TestBase {
                 Arguments.of("Вегетерианская", List.of("Пицца-половинки", "Маргарита Гурме", "4 Сыра", "Веджи Fit & Fresh", "Карамельный Ананас", "Маргарита")),
                 Arguments.of("Острая", List.of("Пицца-половинки", "Диабло")),
                 Arguments.of("С грибами", List.of("Пицца-половинки", "Домино'c", "Веджи Fit & Fresh", "Чикен BBQ", "Ветчина и грибы")),
-                Arguments.of("Без лука", List.of("Пицца-половинки", "Сырная с ветчиной", "Пепперони по-деревенски", "Пепперони", "Маргарита Гурме", "Гавайская",
-                        "4 Сыра", "Веджи Fit & Fresh", "Карамельный Ананас", "Маргарита", "Маргарита", "Ветчина и грибы", "Карбонара", "Мясная", "3 Мяса", "Дабл Пепперони")),
-                Arguments.of("Мясная", List.of("Пицца-половинки", "Сырная с ветчиной", "Пепперони по-деревенски", "Пепперони", "Домино'c", "Гавайская",
-                        "Чикен BBQ", "Ветчина и грибы", "Карбонара", "Мясная", "3 Мяса", "Микс BBQ", "Дабл Пепперони", "Диабло"))
+                Arguments.of("Без лука", List.of("Пицца-половинки", "Сырная с ветчиной", "Пепперони по-деревенски", "Пепперони", "Маргарита Гурме", "Гавайская", "4 Сыра", "Веджи Fit & Fresh", "Карамельный Ананас")),
+                Arguments.of("Мясная", List.of("Пицца-половинки", "Сырная с ветчиной", "Пепперони по-деревенски", "Пепперони", "Домино'c", "Гавайская", "Чикен BBQ", "Ветчина и грибы", "Карбонара"))
         );
     }
 

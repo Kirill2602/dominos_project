@@ -5,9 +5,10 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.dominospizza.tests.ui.pages.components.LoginModalComponent;
 
+import java.time.Duration;
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.dominospizza.tests.ui.pages.components.LoginModalComponent.closeModalsWindows;
@@ -15,7 +16,7 @@ import static ru.dominospizza.tests.ui.pages.components.LoginModalComponent.clos
 public class MainPage {
     SelenideElement headerLogo = $("[data-testId='header_logo']"),
             loginButton = $("[data-testId='topbar_user_loginbutton']"),
-            userIcon = $x("//div[@class='sc-1inhxcy-5 lcFAbi']"),
+            userName = $(".sc-1inhxcy-3.s2w6rg-1.hsujzs div"),
             pizzaLink = $("[data-testId='main_nav_item_1']");
     ElementsCollection
             navMenuItems = $$x("//nav[@class='sc-1inhxcy-11 hqUcMX']/ul/li/a");
@@ -42,14 +43,16 @@ public class MainPage {
     }
 
     @Step("Проверка отображения имени пользователя")
-    public MainPage checkUserName(String userName) {
-        userIcon.shouldBe(visible);
-        assertEquals(userName, userIcon.text());
+    public MainPage checkUserName(String name) {
+        closeModalsWindows();
+        userName.should(exist);
+        assertEquals(name, userName.text());
         return this;
     }
 
     @Step("Нажать на линк 'Пицца'")
     public PizzaPage clickOnPizzaLink() {
+        closeModalsWindows();
         pizzaLink.click();
         return new PizzaPage();
     }

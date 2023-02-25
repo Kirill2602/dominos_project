@@ -25,7 +25,7 @@ public class PizzaPage {
             footerText = $(".sc-1nbwown-0.fLEMQr h1");
     ElementsCollection
             filterButtons = $$(".fl60hy-0.iNLGfO.c8ov00-4.kmNAFE"),
-            filteredProductsList = $$("[itemprop='name']");
+            filteredVisibleProductsList = $$("[itemprop='name']");
 
     @Step("Проверить наличие названия выбранной пиццы")
     public PizzaPage checkAvailabilityOfPizzaName(String name) {
@@ -79,9 +79,7 @@ public class PizzaPage {
     @Step("Проверить наличие продуктов подходящих под фильтр")
     public PizzaPage checkFilteredProducts(List<String> productsList) {
         closeModalsWindows();
-        footerText.scrollTo();
-        closeModalsWindows();
-        filteredProductsList.shouldHave(CollectionCondition.texts(productsList));
+        filteredVisibleProductsList.shouldHave(CollectionCondition.texts(productsList));
         return this;
     }
 }

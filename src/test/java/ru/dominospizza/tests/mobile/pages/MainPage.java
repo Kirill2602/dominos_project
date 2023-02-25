@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.refresh;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainPage {
@@ -26,6 +27,7 @@ public class MainPage {
 
     @Step("Нажать на кнопку 'Пицца'")
     public PizzaPage clickOnPizzaButton() {
+        refresh();
         pizzaButton.click();
         return new PizzaPage();
     }

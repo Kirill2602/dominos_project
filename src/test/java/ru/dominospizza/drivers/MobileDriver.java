@@ -6,7 +6,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
-import ru.dominospizza.config.Config;
+import ru.dominospizza.config.MobileConfig;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class MobileDriver implements WebDriverProvider {
     public static AndroidDriver driver;
-    static Config config = ConfigFactory.create(Config.class);
+    static MobileConfig config = ConfigFactory.create(MobileConfig.class);
 
     public static URL getAppiumServerUrl() {
         try {

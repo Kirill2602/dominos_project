@@ -89,7 +89,7 @@ D --> H[local]
 После завершения сборки результаты тестирования доступны в:
 >- <code><strong>*Allure Report*</strong></code>
 >- <code><strong>*Allure TestOps*</strong></code> - результаты загружаются туда и тест-кейсы могут автоматически обновляться в соответствии с последними изменениями в коде.
-## <img id="allure" src="readmemedia/allure_report.svg" width="25" height="25"  alt="Allure"/> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/dominos_project/32/allure/">Allure report</a>
+## <img id="allure" src="readmemedia/Allure_Report.svg" width="25" height="25"  alt="Allure"/> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/dominos_project/32/allure/">Allure report</a>
 
 ### Основное окно
 

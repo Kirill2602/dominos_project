@@ -6,10 +6,13 @@
 </div>
 
 ## :pushpin: Содержание:
+
+<div id="header"></div>
+
 - [Технологии и инструменты](#tech)
-- [Реализованные проверки](#checks)
-- [Сборка в Jenkins](#job)
 - [Запуск из терминала](#term)
+- [Возможные комбинации запуска](#combinations)
+- [Сборка в Jenkins](#job)
 - [Allure отчет](#allure)
 - [Интеграция с Allure TestOps](#testOps)
 - [Интеграция с Jira](#jira)
@@ -28,39 +31,46 @@
 `REST Assured` - для тестирования REST-API сервисов.\
 `Jenkins` - CI/CD для запуска тестов удаленно.\
 `Selenoid` - для удаленного запуска браузера в `Docker` контейнерах.\
-`Browserstack` - для запуска мобильных тестов удаленно.\
+`Browserstack` - для запуска тестов мобильных устройств удаленно.\
 `Android Studio tools`, `Appium` - для запуска мобильных тестов локально на эмуляторе мобильных устройств.\
 `Allure Report` - для визуализации результатов тестирования.\
 `Telegram Bot` - для уведомлений о результатах тестирования.\
 `Allure TestOps` - система управления тестированием.
 
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+
 ## :computer: Запуск тестов из терминала
 
 Для запуска тестов локально и в Jenkins используется команда:
 <a id="term"></a>
+
 ```bash
 gradle clean ${TAG} -Denv=${ENV}
 ```
+
 `tag` - теги для запуска выполнения тестов:
->- *api*
+> - *api*
 >- *ui*
 >- *mobile*
 
 `env` - определяет среду для запуска этих тестов:
->- *api*
+> - *api*
 >- *ui.remote*
 >- *ui.local*
 >- *browserstack*
 >- *local*
 
 Дополнительные свойства извлекаются из соответствующего файла конфигурации (в зависимости от значения `env`):
+
 ```bash
 ./resources/config/api/${env}.properties
 ./resources/config/ui/${env}.properties
 ./resources/config/mobile/${env}.properties
 ```
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
 
-Возможные комбинации:
+<p id="combinations">Возможные комбинации:</p>
+
 ```mermaid
 graph LR
 A[tag] --> B[api]
@@ -72,8 +82,10 @@ C --> F[ui.local]
 D --> G[browserstack]
 D --> H[local]
 ```
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
 
-## <a name="Запуск в Jenkins">Запуск в [Jenkins](https://jenkins.autotests.cloud/job/dominos_project/)</a>
+## <a id="job" name="Запуск в Jenkins">Запуск в [Jenkins](https://jenkins.autotests.cloud/job/dominos_project/)</a>
+
 Главная страница сборки:
 <p  align="center">
 <img src="readmemedia/jenkinsMain.png" width="950">
@@ -84,11 +96,17 @@ D --> H[local]
 <img src="readmemedia/jenkinsParam.png" alt="JenkinsBuildParameters" width="950">
 </p>
 
-Конфиденциальная информация (имена для входа и пароли) хранится в закодированном виде в ./resources/config/credentials/credentials.properties.
+Конфиденциальная информация (имена для входа и пароли) хранится в закодированном виде в
+./resources/config/credentials/credentials.properties.
 
 После завершения сборки результаты тестирования доступны в:
->- <code><strong>*Allure Report*</strong></code>
->- <code><strong>*Allure TestOps*</strong></code> - результаты загружаются туда и тест-кейсы могут автоматически обновляться в соответствии с последними изменениями в коде.
+> - <code><strong>*Allure Report*</strong></code>
+>- <code><strong>*Allure TestOps*</strong></code> - результаты загружаются туда и тест-кейсы могут автоматически
+   обновляться в соответствии с последними изменениями в коде.
+
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+
+
 ## <img id="allure" src="readmemedia/Allure_Report.svg" width="25" height="25"  alt="Allure"/> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/dominos_project/32/allure/">Allure report</a>
 
 ### Основное окно
@@ -108,6 +126,7 @@ D --> H[local]
 <div align="center">
 <img title="Allure Graphics" src="readmemedia/graph.png">
 </div>
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
 
 ## <img src="readmemedia/allure_ee.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/launch/19608">Allure TestOps</a>
 
@@ -123,17 +142,23 @@ D --> H[local]
 <img title="Allure TestOps Tests" src="readmemedia/totc.png">
 </div>
 
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+
 ## <img src="readmemedia/Jira.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с трекером задач <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-498">Jira</a>
 
 <div align="center">
 <img id="jira" title="Jira" src="fghghgh">
 </div>
 
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+
 ## <img src="readmemedia/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram при помощи бота
 
 <div align="center">
 <img id="tm" title="Allure Overview Dashboard" src="readmemedia/tg.png">
 </div>
+
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
 
 ### <img src="readmemedia/Selenoid.svg" width="25" height="25"  alt="Allure"/></a> Примеры видео о прохождении тестов Selenoid
 
@@ -143,6 +168,8 @@ D --> H[local]
 
 ### <img src="readmemedia/browserstack.svg" width="25" height="25"  alt="Allure"/></a> Примеры видео о прохождении тестов Browserstack
 
-<div id="video" align="center">
+<div align="center">
 <video src="https://user-images.githubusercontent.com/59203915/221526156-cace06ec-a478-49b9-9011-ce2155ba95f1.mp4"></video>
 </div>
+
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>

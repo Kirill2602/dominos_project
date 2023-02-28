@@ -37,7 +37,8 @@
 `Telegram Bot` - для уведомлений о результатах тестирования.\
 `Allure TestOps` - система управления тестированием.
 
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>
 
 ## :computer: Запуск тестов из терминала
 
@@ -67,7 +68,9 @@ gradle clean ${TAG} -Denv=${ENV}
 ./resources/config/ui/${env}.properties
 ./resources/config/mobile/${env}.properties
 ```
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>
 
 <p id="combinations">Возможные комбинации:</p>
 
@@ -82,7 +85,9 @@ C --> F[ui.local]
 D --> G[browserstack]
 D --> H[local]
 ```
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>
 
 ## <a id="job" name="Запуск в Jenkins">Запуск в [Jenkins](https://jenkins.autotests.cloud/job/dominos_project/)</a>
 
@@ -104,8 +109,8 @@ D --> H[local]
 >- <code><strong>*Allure TestOps*</strong></code> - результаты загружаются туда и тест-кейсы могут автоматически
    обновляться в соответствии с последними изменениями в коде.
 
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
-
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>
 
 ## <img id="allure" src="readmemedia/Allure_Report.svg" width="25" height="25"  alt="Allure"/> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/dominos_project/32/allure/">Allure report</a>
 
@@ -126,7 +131,7 @@ D --> H[local]
 <div align="center">
 <img title="Allure Graphics" src="readmemedia/graph.png">
 </div>
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">&#8679; К содержанию</a>
 
 ## <img src="readmemedia/allure_ee.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с <a target="_blank" href="https://allure.autotests.cloud/launch/19608">Allure TestOps</a>
 
@@ -142,7 +147,8 @@ D --> H[local]
 <img title="Allure TestOps Tests" src="readmemedia/totc.png">
 </div>
 
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>
 
 ## <img src="readmemedia/Jira.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с трекером задач <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-498">Jira</a>
 
@@ -150,7 +156,8 @@ D --> H[local]
 <img id="jira" title="Jira" src="fghghgh">
 </div>
 
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>
 
 ## <img src="readmemedia/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram при помощи бота
 
@@ -158,7 +165,8 @@ D --> H[local]
 <img id="tm" title="Allure Overview Dashboard" src="readmemedia/tg.png">
 </div>
 
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>
 
 ### <img src="readmemedia/Selenoid.svg" width="25" height="25"  alt="Allure"/></a> Примеры видео о прохождении тестов Selenoid
 
@@ -172,4 +180,5 @@ D --> H[local]
 <video src="https://user-images.githubusercontent.com/59203915/221526156-cace06ec-a478-49b9-9011-ce2155ba95f1.mp4"></video>
 </div>
 
-<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none"><h3>&#8679; К содержанию</h3></a>
+<a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">
+&#8679; К содержанию</a>

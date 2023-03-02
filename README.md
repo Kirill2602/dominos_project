@@ -46,7 +46,7 @@
 <a id="term"></a>
 
 ```bash
-gradle clean ${TAG} -Denv=${ENV}
+gradle -Denv=${ENV} clean ${TAG}
 ```
 
 `tag` - теги для запуска выполнения тестов:
@@ -153,7 +153,7 @@ D --> H[local]
 ## <img src="readmemedia/Jira.svg" width="25" height="25"  alt="Allure"/></a>Интеграция с трекером задач <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-498">Jira</a>
 
 <div align="center">
-<img id="jira" title="Jira" src="fghghgh">
+<img id="jira" title="Jira" src="readmemedia/jira.png">
 </div>
 
 <a href="#header" style="display:block; text-align:center; cursor:pointer; color: #fff !important; text-decoration: none">

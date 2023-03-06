@@ -1,6 +1,7 @@
 package ru.dominospizza.config;
 
 import org.aeonbits.owner.Config;
+
 @ru.dominospizza.config.CredentialsConfig.LoadPolicy(ru.dominospizza.config.CredentialsConfig.LoadType.MERGE)
 @org.aeonbits.owner.Config.Sources(
         {"system:properties",

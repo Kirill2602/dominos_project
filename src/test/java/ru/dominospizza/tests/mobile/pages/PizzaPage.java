@@ -2,8 +2,8 @@ package ru.dominospizza.tests.mobile.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import ru.dominospizza.tests.mobile.pages.components.ProductCardComponent;
 import ru.dominospizza.tests.mobile.pages.components.CartComponent;
+import ru.dominospizza.tests.mobile.pages.components.ProductCardComponent;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;

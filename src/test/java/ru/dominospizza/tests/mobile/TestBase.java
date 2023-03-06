@@ -12,7 +12,7 @@ import ru.dominospizza.drivers.BrowserstackDriver;
 import ru.dominospizza.drivers.MobileDriver;
 import ru.dominospizza.helpers.Attach;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
     @BeforeAll

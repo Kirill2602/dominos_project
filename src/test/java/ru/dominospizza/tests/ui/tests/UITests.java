@@ -146,7 +146,7 @@ public class UITests extends TestBase {
                 .checkHeaderText("Моя корзина")
                 .checkProductNameInDescription("Пицца-туница")
                 .checkQty("1")
-                .checkQtyAndPriceAfterClickOnPlusBtn()
+                .checkQtyAfterClickOnPlusBtn()
                 .checkQty("2")
                 .deleteProduct()
                 .checkVisibilityOfHeaderText()

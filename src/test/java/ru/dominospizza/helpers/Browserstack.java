@@ -16,26 +16,27 @@ public class Browserstack {
         return getSessionInfo(sessionId)
                 .path("automation_session.video_url");
     }
+
     public static String getVideoUrl(String sessionId) {
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
-            return getSessionInfo(sessionId)
-                    .path("automation_session.video_url");
-        }
+        return getSessionInfo(sessionId)
+                .path("automation_session.video_url");
+    }
 
-        public static String fullInfoPublicUrl(String sessionId) {
-            return getSessionInfo(sessionId)
-                    .path("automation_session.public_url");
-        }
+    public static String fullInfoPublicUrl(String sessionId) {
+        return getSessionInfo(sessionId)
+                .path("automation_session.public_url");
+    }
 
-        private static ExtractableResponse<Response> getSessionInfo(String sessionId) {
-            return given()
-                    .auth().basic(decoder(config.login()), decoder(config.password()))
-                    .when()
-                    .get("https://api-cloud.browserstack.com/app-automate/sessions/" + sessionId +".json")
-                    .then()
-                    .statusCode(200)
-                    .extract();
-        }
+    private static ExtractableResponse<Response> getSessionInfo(String sessionId) {
+        return given()
+                .auth().basic(decoder(config.login()), decoder(config.password()))
+                .when()
+                .get("https://api-cloud.browserstack.com/app-automate/sessions/" + sessionId + ".json")
+                .then()
+                .statusCode(200)
+                .extract();
+    }
 //        return given()
 //                .log().all()
 //                .filter(withCustomTemplates())

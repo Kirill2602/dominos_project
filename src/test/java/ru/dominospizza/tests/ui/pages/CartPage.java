@@ -4,8 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.dominospizza.tests.ui.pages.components.DeleteQuestionModalComponent;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -47,20 +46,17 @@ public class CartPage {
     }
 
     @Step("Нажать кнопку '+', проверить цену и кол-во товара")
-    public CartPage checkQtyAndPriceAfterClickOnPlusBtn() {
+    public CartPage checkQtyAfterClickOnPlusBtn() {
         plusButton.click();
         qtyInCart.shouldHave(text(Integer.toString(parseInt(initialProductQty) + 1)));
-        initialOrderPrice.equals(Integer.toString(parseInt(initialOrderPrice) * 2));
         return this;
     }
 
     @Step("Нажать кнопку '-', проверить цену и кол-во товара")
     public DeleteQuestionModalComponent deleteProduct() {
-        closeModalsWindows();
-        for (int i = 0; i < 2; i++) {
+        while ($("[data-testId='appAlertPopup']").is(not(visible))) {
             closeModalsWindows();
             minusButton.click();
-            sleep(3000);
         }
         return new DeleteQuestionModalComponent();
     }

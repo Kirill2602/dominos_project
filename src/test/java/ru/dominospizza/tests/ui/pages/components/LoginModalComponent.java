@@ -1,6 +1,5 @@
 package ru.dominospizza.tests.ui.pages.components;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import ru.dominospizza.tests.ui.pages.MainPage;
@@ -9,7 +8,8 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginModalComponent {
